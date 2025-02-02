@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE "Movie" ALTER COLUMN "vizyon" SET DATA TYPE TEXT;

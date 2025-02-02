@@ -1,0 +1,35 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Book {
+  id               Int      @default(autoincrement()) @id
+  name             String
+  author          String
+  publisher       String
+  publication_year Int?
+  ISBN            String   // ISBN uzun olabileceği için String kullanıyoruz
+  book_type       String
+  explanation     String
+  book_img        String   // "url" yerine "String" olmalı
+  embedding       Float[]  // Embedding'ler float olmalı
+}
+
+model Movie {
+  id           Int      @default(autoincrement()) @id
+  film         String
+  ozet         String
+  tür         String
+  oyuncular    String?  // Alternatif olarak Json da kullanılabilir
+  yönetmen     String?
+  vizyon       String  // "Date" yerine "DateTime" olmalı
+  sure         String
+  embedding    Float[]  // Embedding'ler float olmalı
+}
+
+
