@@ -17,7 +17,7 @@ services:
   app:
     build: .
     ports:
-      - "3000:3000"
+      - "8000:8000"
     environment:
       DB_HOST: postgres
       DB_PORT: 5435

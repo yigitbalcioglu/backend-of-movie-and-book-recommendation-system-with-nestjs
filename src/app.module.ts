@@ -4,6 +4,8 @@ import { DataController } from './data.controller';
 import { DataService } from './data.service';
 import { CsvService } from './csv.service';
 import { PrismaService } from './prisma.service';
+import { FindSimilarController } from './find-similar.controller';
+import { FindSimilarService } from './find-similar.service';
 
 @Module({
   imports: [
@@ -11,7 +13,7 @@ import { PrismaService } from './prisma.service';
       dest: './uploads', // Yüklenen dosyaların kaydedileceği klasör
     }),
   ],
-  controllers: [DataController],
-  providers: [DataService, CsvService, PrismaService],
+  controllers: [DataController, FindSimilarController],
+  providers: [DataService, CsvService, PrismaService, FindSimilarService],
 })
 export class AppModule {}
