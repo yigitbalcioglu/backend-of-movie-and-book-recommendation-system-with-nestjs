@@ -1,12 +1,23 @@
 import { Controller, Post, Body } from '@nestjs/common';
-import { FindSimilarService } from './find-similar.service';
+import {
+  FindSimilarServiceMovies,
+  FindSimilarServiceBooks,
+} from './find-similar.service';
 
 @Controller('api/search')
 export class FindSimilarController {
-  constructor(private readonly findSimilarService: FindSimilarService) {}
+  constructor(
+    private readonly findSimilarMoviesService: FindSimilarServiceMovies,
+    private readonly findSimilarBooksService: FindSimilarServiceBooks,
+  ) {}
 
-  @Post()
-  findSimilar(@Body('text') text: string) {
-    return this.findSimilarService.findMostSimilarMovies(text);
+  @Post('/movies')
+  findSimilarMovies(@Body('text') text: string) {
+    return this.findSimilarMoviesService.findMostSimilarMovies(text);
+  }
+
+  @Post('/books')
+  findSimilarBooks(@Body('text') text: string) {
+    return this.findSimilarBooksService.findMostSimilarBooks(text);
   }
 }

@@ -5,7 +5,10 @@ import { DataService } from './data.service';
 import { CsvService } from './csv.service';
 import { PrismaService } from './prisma.service';
 import { FindSimilarController } from './find-similar.controller';
-import { FindSimilarService } from './find-similar.service';
+import {
+  FindSimilarServiceBooks,
+  FindSimilarServiceMovies,
+} from './find-similar.service';
 
 @Module({
   imports: [
@@ -14,6 +17,12 @@ import { FindSimilarService } from './find-similar.service';
     }),
   ],
   controllers: [DataController, FindSimilarController],
-  providers: [DataService, CsvService, PrismaService, FindSimilarService],
+  providers: [
+    DataService,
+    CsvService,
+    PrismaService,
+    FindSimilarServiceBooks,
+    FindSimilarServiceMovies,
+  ],
 })
 export class AppModule {}
