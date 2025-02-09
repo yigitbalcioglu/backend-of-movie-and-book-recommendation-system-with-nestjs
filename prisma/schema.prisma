@@ -32,4 +32,22 @@ model Movie {
   embedding    Float[]  // Embedding'ler float olmalı
 }
 
+model Messages {
+  id          Int    @id @default(autoincrement())
+  system_message String
+  user_message   String
+  user_id      String
+  conversation_id String // Conversation ile ilişki
+  conversation   Conversations @relation(fields: [conversation_id], references: [id])
+}
+
+model Conversations {
+  id          String      @id
+  user_id     String
+  conv_name   String
+  messages    Messages[] // Messages ile ilişki
+}
+
+
+
 

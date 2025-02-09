@@ -9,6 +9,8 @@ import {
   FindSimilarServiceBooks,
   FindSimilarServiceMovies,
 } from './find-similar.service';
+import { SaveMessagesService } from './save-messages.service';
+import { SaveMessagesController } from './save-messages.controller';
 
 @Module({
   imports: [
@@ -16,13 +18,14 @@ import {
       dest: './uploads', // Yüklenen dosyaların kaydedileceği klasör
     }),
   ],
-  controllers: [DataController, FindSimilarController],
+  controllers: [DataController, FindSimilarController, SaveMessagesController],
   providers: [
     DataService,
     CsvService,
     PrismaService,
     FindSimilarServiceBooks,
     FindSimilarServiceMovies,
+    SaveMessagesService,
   ],
 })
 export class AppModule {}
